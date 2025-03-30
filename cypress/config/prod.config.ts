@@ -8,7 +8,7 @@ export default defineConfig({
   numTestsKeptInMemory: 1,
   env: {
     envName: 'prod',
-    'shopping.baseUrl': 'https://www.fravega.com',
+    'shopping.baseUrl': 'https://www.fravega.com/',
     'checkout.url': 'https://www.fravega.com/chk-ui',
     'checkout.url.headless': 'https://www.fravega.com/chk-ui-headless'
   },

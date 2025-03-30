@@ -15,7 +15,7 @@ describe('Challenge Fravega', () => {
     cy.clearCookies()
   })  
 
-  it('Caso 1 Challenge Fravega', function() {
+  it('Case 1: Challenge Fravega', function() {
     const home = homePage.visitHomePageClosingGeoBanner()
     const keyword = this.data.keywords.heladeras.heladeraSamsung
     const resultPage = home.header().search(keyword);
@@ -25,6 +25,17 @@ describe('Challenge Fravega', () => {
     const checkOutPage = productDetailPage.buyProduct()
     checkOutPage.assertProductIsInCart(productTitle)
     checkOutPage.assertURL()
+  })
+
+  it('Case 2: seach "Heladera Samsung", compare 2 to 4 first results, assert results quantity and if buy button is visible for each', function() {
+    const home = homePage.visitHomePageClosingGeoBanner()
+    const keyword = this.data.keywords.heladeras.heladeraSamsung
+    const resultPage = home.header().search(keyword)
+    const comparaedItems = resultPage.randomSelectItemsToCompare()
+    resultPage.goToCompareWindow()
+    resultPage.assertComparedItemsQuantity(comparaedItems)
+    resultPage.assertEachArticleHasABuyButton(comparaedItems)
+    
   })
 
 })
