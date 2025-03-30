@@ -23,3 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('closeGeoBanner', () => {
+    cy.get('[data-test-id="close-modal-button"]').click()
+})
